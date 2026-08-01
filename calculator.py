@@ -1,57 +1,31 @@
-def add(a,b):
+def add(a:int, b:int)->int:
     return a+b
-def subtract(a,b):
+
+def subtract(a:int, b:int)->int:
     return a-b
-def multiply(a,b):
+
+def multiply(a:int, b:int)->int:
     return a*b
-def divide(a=0.0,b=0.0):
+
+def divide(a:int ,b:int)->float:
     return a/b
-def modulo(a,b):
-    return a%b
-def power(a,b):
-    return a**b
 
-operations={
-    "+": add,
-    "-": subtract,
-    "*": multiply,
-    "/": divide,
-    "%": modulo,
-    "pow": power
-}
-
-def Input_integer():
-    a,b=map(float,input("enter two integers: ").split())
-    return a,b
-def Input_choice():
-    c=input("+ for addition\n-for subtraction\n* for multiplication\n/ for division\n% for modulus\npow for power\nExit to exit\nHis to show history\nchoice: ").lower()
-    return c
-def show_history():
-    with open("history.txt") as p:
-       data= p.read()
-       print(f"\n{data}")
 def main():
-    print("========Calculator========")
-    with open("history.txt","a") as f:
-        while True:
-            choice=Input_choice()
-            if(choice=="exit"):
-                print("Exiting....")
-                break
-            if(choice=="his"):
-                show_history()
-                continue
-            a,b=Input_integer()
-
-            if choice in operations:
-                try:
-                    print(f"result: {operations[choice](a,b)}")
-                    f.write(f"{a} {choice} {b} = {operations[choice](a,b)}\n")
-                    f.flush()
-                except ZeroDivisionError as e:
-                    print(e)
-            else:
-                print("invalid operator")
-
-
-main()
+    OPERATOR={"+":add,"-":subtract,"*":multiply,"/":divide}
+    print("------------------------calculator------------------------")
+    try:
+        a,b=map(int, input("Enter the values of a and b: ").split())
+        op=input("enter the operator: ")
+    except ValueError:
+        print("Invalid Input!!")
+        return
+    if op in OPERATOR:
+        try:
+            print(OPERATOR[op](a,b))
+        except ZeroDivisionError:
+            print("division by zero is not possible!")
+            return
+    else:
+        print("Invalid input")
+if __name__=="__main__":
+    main()
