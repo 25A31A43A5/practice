@@ -1,31 +1,31 @@
-def add(a:int, b:int):
+def add(a:int, b:int)->int:
     return a+b
+
 def subtract(a:int, b:int)->int:
     return a-b
-def multiply(a:int, b:int):
+
+def multiply(a:int, b:int)->int:
     return a*b
-def divide(a:int ,b:int):
+
+def divide(a:int ,b:int)->float:
     return a/b
 
-def choice(operator:chr):
-    match operator:
-        case '+':
-            return add
-        case '-':
-            return subtract
-        case '/':
-            try:
-                return divide
-            except ZeroDivisionError as e:
-                print("division by zero is not possible")
-                exit
-        case '*':
-            return multiply
 def main():
+    OPERATOR={"+":add,"-":subtract,"*":multiply,"/":divide}
     print("------------------------calculator------------------------")
-    a,b=map(int, input("Enter the values of a and b: ").split())
-    op=input("enter the operator")
-    print(choice(op)(a,b))
-
+    try:
+        a,b=map(int, input("Enter the values of a and b: ").split())
+        op=input("enter the operator: ")
+    except ValueError:
+        print("Invalid Input!!")
+        return
+    if op in OPERATOR:
+        try:
+            print(OPERATOR[op](a,b))
+        except ZeroDivisionError:
+            print("division by zero is not possible!")
+            return
+    else:
+        print("Invalid input")
 if __name__=="__main__":
     main()
