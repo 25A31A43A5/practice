@@ -1,5 +1,5 @@
 import math_utils as mu
-import string_utils as su
+import day2.string_utils as su
 
 def main():
     print("-----------------------day 2-----------------------")
