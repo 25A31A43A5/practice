@@ -56,7 +56,7 @@ def main():
                     print("The contact doesnt exist")
             case 3:
                 try:
-                    yo.update_contact(get_name())
+                    yo.update_contact(get_name(),get_name(),get_phn_no(),get_email())
                     print("Contact updated")
                 except ValueError as e:
                     print(e)
