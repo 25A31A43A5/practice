@@ -1,0 +1,13 @@
+[project]
+name = "calculator"
+version = "1.0.0"
+description = "Simple calculator"
+
+dependencies = [
+]
+
+[tool.black]
+line-length = 31
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
