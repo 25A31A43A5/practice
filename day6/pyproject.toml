@@ -7,7 +7,7 @@ dependencies = [
 ]
 
 [tool.black]
-line-length = 31
+line-length = 88
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
