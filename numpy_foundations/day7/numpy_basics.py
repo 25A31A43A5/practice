@@ -18,7 +18,7 @@ def ndim(lst:list[int])->int:
     return array.ndim
 
 def shape(lst:list[int])->tuple:
-    # shape returns the shape of the array, i.e., the number of layers and elements in each layer
+    # Shape describes the number of elements along each axis.
     array=np.array(lst)
     return array.shape
 
@@ -58,7 +58,7 @@ def  slicing(lst:list[int])->np.ndarray:
 def view(lst:list[int])->np.ndarray:
     # view is the name of the method that is used to create an object to the data without copying it
     # if you change a view of an array the original array also changes and it is similar to pointers in c and cpp
-    # for optimisation reasons slicing indexing and almost every operation returns a view instead of a copy
+    # Basic slicing generally produces a view, while many other NumPy operations produce new arrays.
 
     array=np.array(lst)
     temp_array=array[0::1]
